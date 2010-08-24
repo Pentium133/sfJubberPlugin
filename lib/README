@@ -9,6 +9,7 @@ Sent message on jabber protocol
 
 app:
   sfJabberPlugin:
+    admin:         your_jabber@jid  # your JID
     jabber_server: talk.google.com
     port:          5223
     username:      your username before @
@@ -19,10 +20,24 @@ And clear cache
 
 ## Using ##
 
+For sending message use
 sfJabber::SendMessage('Test message', 'symfony_developer@gmail.com');
+or 
+sfJabber::SendMessage('Test message'); to jid defined as app_sfJabberPlugin_admin property.
+
+For error nitification just add to frontendConfiguration class
+public function configure()
+{
+  $this->dispatcher->connect('application.throw_exception', array('sfJabber', 'SendExceptionNotify'));
+}
+
+
+### 2009-03-20 | 1.1 ###
+* added error nitification
+* added app_sfJabberPlugin_admin property for default jid
+
 
 ### 2009-02-19 | 1.0 Beta ###
-
 * Initial release
 
 Copyright (c) 2009 Serg Puhoff
