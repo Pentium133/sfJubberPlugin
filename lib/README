@@ -1,0 +1,28 @@
+# sfJabber plugin #
+
+Sent message on jabber protocol
+
+## Installation ##
+
+1. Install plugin
+2. Define varibles in app.yml:
+
+app:
+  sfJabberPlugin:
+    jabber_server: talk.google.com
+    port:          5223
+    username:      your username before @
+    password:      your_password
+    host:          gmail.com (after @)
+
+And clear cache
+
+## Using ##
+
+sfJabber::SendMessage('Test message', 'symfony_developer@gmail.com');
+
+### 2009-02-19 | 1.0 Beta ###
+
+* Initial release
+
+Copyright (c) 2009 Serg Puhoff
